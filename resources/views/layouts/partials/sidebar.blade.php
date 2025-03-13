@@ -150,21 +150,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#base">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Base</p>
+                    <a data-toggle="collapse" href="#user_mgmt">
+                        <i class="fas fa-users"></i>
+                        <p>User Management</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="base">
+                    <div class="collapse" id="user_mgmt">
                         <ul class="nav nav-collapse">
-                            <li>
-                                <a href="components/avatars.html">
-                                    <span class="sub-item">Avatars</span>
+                            <li class="nav-item">
+                                <a href="{{route('roles.index')}}">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Role</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="components/buttons.html">
-                                    <span class="sub-item">Buttons</span>
+                            <li class="nav-item">
+                                <a href="{{route('users.index')}}">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>User</span>
                                 </a>
                             </li>
                             <li>

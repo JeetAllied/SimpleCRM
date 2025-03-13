@@ -16,6 +16,8 @@ use App\Http\Controllers\SalesPipelineController;
 use App\Http\Controllers\SalesPipelineStageController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketStatusController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('test2');
@@ -45,6 +47,8 @@ Route::middleware('auth')->group(function () {
         'sales-pipeline-stages'=>SalesPipelineStageController::class,
         'tickets'=>TicketController::class,
         'ticket-statuses'=>TicketStatusController::class,
+        'roles'=>RoleController::class,
+        'users'=>UserController::class
     ]);
 });
 

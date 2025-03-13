@@ -39,6 +39,14 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\TicketStatusService\TicketStatusService',
             'App\Services\TicketStatusService\TicketStatusServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\RoleService\RoleService',
+            'App\Services\RoleService\RoleServiceImpl'
+        );
+        $this->app->bind(
+            'App\Services\UserService\UserService',
+            'App\Services\UserService\UserServiceImpl'
+        );
     }
 
     /**
