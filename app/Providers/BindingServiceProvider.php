@@ -47,6 +47,10 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\UserService\UserService',
             'App\Services\UserService\UserServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\CustomerService\CustomerService',
+            'App\Services\CustomerService\CustomerServiceImpl'
+        );
     }
 
     /**

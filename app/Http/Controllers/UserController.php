@@ -38,10 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
             $rules = [
                 'user_name' => 'required|max:255',
-                //'email' => 'required|email|max:255|unique:users,email',
                 'email' => ['required','email','max:255',Rule::unique('users')->where(function ($query)  {
                     return $query->where('status', 1);
                 })],
@@ -63,7 +63,13 @@ class UserController extends Controller
             $validator = Validator::make($request->all(), $rules, $messages);
             if($validator->fails())
             {
-                return redirect()->back()->withErrors($validator);
+                //dd('here');
+                return response()->json([
+                    'alertClass' => 'error',
+                    'message' => $messages,
+                    'errors' => $validator->errors(),
+                    'old' => $request->all()
+                ], 422);
             }
             $data = [
                 'name' => $request->user_name,
@@ -164,7 +170,12 @@ class UserController extends Controller
 
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator);
+                return response()->json([
+                    'alertClass' => 'error',
+                    'message' => $messages,
+                    'errors' => $validator->errors(),
+                    'old' => $request->all()
+                ], 422);
             }
 
             $data = [

@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
         'roles'=>RoleController::class,
         'users'=>UserController::class
     ]);
+    Route::get('/get-all-customers',[CustomerController::class,'getAllCustomers'])->name('get-all-customers');
 });
 
 Route::middleware('auth')->group(function () {

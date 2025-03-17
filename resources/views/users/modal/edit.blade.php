@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="password" name="password" placeholder="Enter password only if you want to change">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password only if you want to change">
             </div>
             <div class="mb-3">
                 <label for="roles" class="form-label">Role <span class="text-danger">*</span></label><br>
