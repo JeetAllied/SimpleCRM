@@ -51,6 +51,14 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\CustomerService\CustomerService',
             'App\Services\CustomerService\CustomerServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\LeadService\LeadService',
+            'App\Services\LeadService\LeadServiceImpl'
+        );
+        $this->app->bind(
+            'App\Services\OpportunityService\OpportunityService',
+            'App\Services\OpportunityService\OpportunityServiceImpl'
+        );
     }
 
     /**

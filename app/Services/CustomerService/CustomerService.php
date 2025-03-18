@@ -7,4 +7,5 @@ interface CustomerService{
     public function updateCustomer($data, $id);
     public function deleteCustomer($id);
     public function getTotalActiveCustomers();
+    public function getAllCustomersData();
 }

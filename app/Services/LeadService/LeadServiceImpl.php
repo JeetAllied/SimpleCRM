@@ -1,20 +1,18 @@
 <?php
-namespace App\Services\CustomerService;
-use App\Models\Customer;
+namespace App\Services\LeadService;
+use App\Models\Lead;
 use Yajra\DataTables\Facades\DataTables;
 
-class CustomerServiceImpl implements CustomerService{
-    private $customer;
+class LeadServiceImpl implements LeadService{
+    private $lead;
     public function __construct()
     {
-        $this->customer = new Customer();
+        $this->lead = new Lead();
     }
-    public function getAllCustomers()
+    public function getAllLeads()
     {
-
         $user = auth()->user();
-        $resultData = $this->customer->getAllCustomers();
-        //dd($resultData);
+        $resultData = $this->lead->getAllLeads();
         return DataTables::of($resultData)
             ->addColumn('action', function ($result) use($user) {
 
@@ -25,15 +23,15 @@ class CustomerServiceImpl implements CustomerService{
                 }
                 if($user->can('update_service_order'))
                 {*/
-                    if($result->status == 1){
-                        $html .= '<button type="button" data-remote="'.route('customers.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Customer" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
-                    }
+                if($result->status == 1){
+                    $html .= '<button type="button" data-remote="'.route('leads.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Lead" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
+                }
                 /*}
                 if($user->can('delete_service_order'))
                 {*/
-                    if($result->status == 1) {
-                        $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('customers.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Customer"><i class="fas fa-trash"></i></a>';
-                    }
+                if($result->status == 1) {
+                    $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('leads.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Lead"><i class="fas fa-trash"></i></a>';
+                }
                 //}
 
                 return $html;
@@ -63,31 +61,33 @@ class CustomerServiceImpl implements CustomerService{
             ->make(true);
     }
 
-    public function addCustomer($data)
+    public function addLead($data)
     {
-        return $this->customer->addCustomer($data);
+        return $this->lead->addLead($data);
     }
 
-    public function getCustomerById($id)
+    public function getLeadById($id)
     {
-        return $this->customer->getCustomerById($id);
+        return $this->lead->getLeadById($id);
     }
 
-    public function updateCustomer($data, $id)
+    public function updateLead($data, $id)
     {
-        return $this->customer->updateCustomer($data,$id);
+        return $this->lead->updateLead($data,$id);
     }
 
-    public function deleteCustomer($id)
+    public function deleteLead($id)
     {
-        return $this->customer->deleteCustomer($id);
+        return $this->lead->deleteLead($id);
     }
 
-    public function getTotalActiveCustomers()
+    public function getTotalActiveLeads()
     {
-        return $this->customer->getTotalActiveCustomers();
+        return $this->lead->getTotalActiveLeads();
     }
-    public function getAllCustomersData(){
-        return $this->customer->getAllCustomersData();
+
+    public function getAllLeadsData()
+    {
+        return $this->lead->getAllLeadsData();
     }
 }

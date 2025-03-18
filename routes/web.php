@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
         'users'=>UserController::class
     ]);
     Route::get('/get-all-customers',[CustomerController::class,'getAllCustomers'])->name('get-all-customers');
+    Route::get('/get-all-leads',[LeadController::class,'getAllLeads'])->name('get-all-leads');
+    Route::get('/get-all-opportunities',[OpportunityController::class,'getAllOpportunities'])->name('get-all-opportunities');
 });
 
 Route::middleware('auth')->group(function () {

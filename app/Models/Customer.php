@@ -56,4 +56,8 @@ class Customer extends Model
     {
         return $this->select('id')->where('status',1)->get()->count();
     }
+    public function getAllCustomersData()
+    {
+        return $this->with('user')->where('status',1)->orderBy('id','desc')->get();
+    }
 }
