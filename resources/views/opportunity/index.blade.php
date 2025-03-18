@@ -79,7 +79,7 @@
                         title: 'Sr No', // Column title for serial number
                         orderable: false // Disable sorting for this column
                     },
-                    {data: 'lead.id', name:'lead.id'},
+                    {data: 'lead.customer.name', name:'lead.customer.name'},
                     {data: 'expected_value', name:'expected_value'},
                     {data: 'opportunity_stage.opportunity_stage_name', name:'opportunity_stage.opportunity_stage_name'},
                     {data: 'status', name:'status'},
