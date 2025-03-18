@@ -13,7 +13,7 @@ class OpportunityServiceImpl implements OpportunityService
     {
         $user = auth()->user();
         $resultData = $this->opportunity->getAllOpportunities();
-        $res = DataTables::of($resultData)
+        return DataTables::of($resultData)
             ->addColumn('action', function ($result) use($user) {
 
                 $html = '';
@@ -62,7 +62,6 @@ class OpportunityServiceImpl implements OpportunityService
             })
             ->rawColumns(['status', 'action'])
             ->make(true);
-        dd($res);
     }
 
     public function addOpportunity($data)

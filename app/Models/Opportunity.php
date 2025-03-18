@@ -32,7 +32,7 @@ class Opportunity extends Model
 
     public function getAllOpportunities()
     {
-        return $this->with(['lead','opportunityStage'])->where('opportunity.status',1)->orderBy('opportunity.id','desc');
+        return $this->with(['lead','opportunityStage'])->where('opportunities.status',1)->orderBy('opportunities.id','desc');
     }
 
     public function addOpportunity($data)
