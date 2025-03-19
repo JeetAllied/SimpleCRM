@@ -59,6 +59,14 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\OpportunityService\OpportunityService',
             'App\Services\OpportunityService\OpportunityServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\SalesPipelineService\SalesPipelineService',
+            'App\Services\SalesPipelineService\SalesPipelineServiceImpl'
+        );
+        $this->app->bind(
+            'App\Services\TicketService\TicketService',
+            'App\Services\TicketService\TicketServiceImpl'
+        );
     }
 
     /**

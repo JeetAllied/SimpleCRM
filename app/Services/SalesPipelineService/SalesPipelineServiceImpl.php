@@ -1,18 +1,21 @@
 <?php
-namespace App\Services\OpportunityService;
-use App\Models\Opportunity;
+namespace App\Services\SalesPipelineService;
+
+
+use App\Models\SalesPipeline;
 use Yajra\DataTables\Facades\DataTables;
 
-class OpportunityServiceImpl implements OpportunityService
-{
-    private $opportunity;
-    public function __construct(){
-        $this->opportunity = new Opportunity();
-    }
-    public function getAllOpportunities()
+class SalesPipelineServiceImpl implements SalesPipelineService{
+    private $salesPipeline;
+    public function __construct()
     {
+        $this->salesPipeline = new SalesPipeline();
+    }
+    public function getAllSalesPipelines()
+    {
+
         $user = auth()->user();
-        $resultData = $this->opportunity->getAllOpportunities();
+        $resultData = $this->salesPipeline->getAllSalesPipelines();
 
         return DataTables::of($resultData)
             ->addColumn('action', function ($result) use($user) {
@@ -25,13 +28,13 @@ class OpportunityServiceImpl implements OpportunityService
                 if($user->can('update_service_order'))
                 {*/
                 if($result->status == 1){
-                    $html .= '<button type="button" data-remote="'.route('opportunities.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Opportunity" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
+                    $html .= '<button type="button" data-remote="'.route('sales-pipelines.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Sales Pipeline" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
                 }
                 /*}
                 if($user->can('delete_service_order'))
                 {*/
                 if($result->status == 1) {
-                    $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('opportunities.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Opportunity"><i class="fas fa-trash"></i></a>';
+                    $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('sales-pipelines.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Sales Pipeline"><i class="fas fa-trash"></i></a>';
                 }
                 //}
 
@@ -41,9 +44,6 @@ class OpportunityServiceImpl implements OpportunityService
                 return $result->created_at->format('Y-m-d H:i:s');
             })
             ->editColumn('updated_at', function ($result) {
-                return $result->updated_at->format('Y-m-d H:i:s');
-            })
-            ->editColumn('expected_close_date', function ($result) {
                 return $result->updated_at->format('Y-m-d H:i:s');
             })
             ->editColumn('status', function ($result) {
@@ -63,35 +63,30 @@ class OpportunityServiceImpl implements OpportunityService
             })
             ->rawColumns(['status', 'action'])
             ->make(true);
-
     }
 
-    public function addOpportunity($data)
+    public function addSalesPipeline($data)
     {
-        return $this->opportunity->addOpportunity($data);
+        return $this->salesPipeline->addSalesPipeline($data);
     }
 
-    public function getOpportunityById($id)
+    public function getSalesPipelineById($id)
     {
-        return $this->opportunity->getOpportunityById($id);
+        return $this->salesPipeline->getSalesPipelineById($id);
     }
 
-    public function updateOpportunity($data, $id)
+    public function updateSalesPipeline($data, $id)
     {
-        return $this->opportunity->updateOpportunity($data,$id);
+        return $this->salesPipeline->updateSalesPipeline($data, $id);
     }
 
-    public function deleteOpportunity($id)
+    public function deleteSalesPipeline($id)
     {
-        return $this->opportunity->deleteOpportunity($id);
+        return $this->salesPipeline->deleteSalesPipeline($id);
     }
 
-    public function getTotalActiveOpportunities()
+    public function getTotalActiveSalesPipelines()
     {
-        return $this->opportunity->getTotalActiveOpportunities();
-    }
-    public function getAllOpportunitiesData()
-    {
-        return $this->opportunity->getAllOpportunitiesData();
+        return $this->salesPipeline->getTotalActiveSalesPipelines();
     }
 }

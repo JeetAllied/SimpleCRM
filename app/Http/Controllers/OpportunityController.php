@@ -42,15 +42,18 @@ class OpportunityController extends Controller
     {
         try {
             $rules = [
+                'opportunity_name'=>'required',
                 'lead_id' => 'required',
-                'expected_value' => 'required|numeric',
+                'expected_value' => 'required|numeric|gt:0|regex:/^\d+(\.\d{1,2})?$/',
                 'opportunity_stage_id' => 'required',
                 'expected_close_date'=>'required',
             ];
             $messages = [
+                'opportunity_name.required'=>'Please enter opportunity name.',
                 'lead_id.required'=> 'Please select lead.',
                 'expected_value.required'=> 'Please enter expected value.',
                 'expected_value.numeric' => 'Expected value must be numeric only.',
+                'expected_value.gt'=> 'Please enter value greater than 0.',
                 'expected_close_date.required'=> 'Please select expected close date.',
             ];
 
@@ -65,7 +68,8 @@ class OpportunityController extends Controller
                 ], 422);
             }
             $data = [
-                'lead_id' => $request->expected_value,
+                'opportunity_name'=>$request->opportunity_name,
+                'lead_id' => $request->lead_id,
                 'expected_value' => $request->expected_value,
                 'opportunity_stage_id' => $request->opportunity_stage_id,
                 'expected_close_date' => $request->expected_close_date,
@@ -129,17 +133,21 @@ class OpportunityController extends Controller
         try {
 
             $rules = [
+                'opportunity_name'=>'required',
                 'lead_id' => 'required',
-                'expected_value' => 'required|numeric',
+                'expected_value' => 'required|numeric|gt:0|regex:/^\d+(\.\d{1,2})?$/',
                 'opportunity_stage_id' => 'required',
                 'expected_close_date'=>'required',
             ];
 
             $messages = [
+                'opportunity_name.required'=>'Please enter opportunity name.',
                 'lead_id.required'=> 'Please select lead.',
                 'expected_value.required'=> 'Please enter expected value.',
                 'expected_value.numeric' => 'Expected value must be numeric only.',
+                'expected_value.gt'=> 'Please enter value greater than 0.',
                 'expected_close_date.required'=> 'Please select expected close date.',
+
             ];
 
             $validator = Validator::make($request->all(), $rules, $messages);
@@ -153,12 +161,12 @@ class OpportunityController extends Controller
             }
 
             $data = [
-                'lead_id' => $request->expected_value,
+                'opportunity_name'=>$request->opportunity_name,
+                'lead_id' => $request->lead_id,
                 'expected_value' => $request->expected_value,
                 'opportunity_stage_id' => $request->opportunity_stage_id,
                 'expected_close_date' => $request->expected_close_date,
             ];
-
 
             $opportunity = $this->opportunityService->updateOpportunity($data, $id);
 

@@ -36,6 +36,8 @@
     <!-- select2 -->
     <link rel="stylesheet" href="{{asset('/resources/')}}/js/plugin/select2/css/select2.min.css">
 
+    <!--datetimepicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{asset('/resources/')}}/css//demo.css">
     {{--@vite('resources/css/app.css')--}}
@@ -194,6 +196,10 @@
 
 <!-- Select2 -->
 <script src="{{asset('/resources/')}}/js//plugin/select2/js/select2.js"></script>
+
+<!-- datetimepicker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <!-- Atlantis JS -->
 <script src="{{asset('/resources/')}}/js//atlantis.min.js"></script>

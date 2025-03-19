@@ -1,18 +1,20 @@
 <?php
-namespace App\Services\OpportunityService;
-use App\Models\Opportunity;
+namespace App\Services\TicketService;
+use App\Models\Ticket;
 use Yajra\DataTables\Facades\DataTables;
 
-class OpportunityServiceImpl implements OpportunityService
+class TicketServiceImpl implements TicketService
 {
-    private $opportunity;
-    public function __construct(){
-        $this->opportunity = new Opportunity();
-    }
-    public function getAllOpportunities()
+    private $ticket;
+    public function __construct()
     {
+        $this->ticket = new Ticket();
+    }
+    public function getAllTickets()
+    {
+
         $user = auth()->user();
-        $resultData = $this->opportunity->getAllOpportunities();
+        $resultData = $this->ticket->getAllTickets();
 
         return DataTables::of($resultData)
             ->addColumn('action', function ($result) use($user) {
@@ -25,13 +27,13 @@ class OpportunityServiceImpl implements OpportunityService
                 if($user->can('update_service_order'))
                 {*/
                 if($result->status == 1){
-                    $html .= '<button type="button" data-remote="'.route('opportunities.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Opportunity" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
+                    $html .= '<button type="button" data-remote="'.route('tickets.edit',$result->id).'" class="btn btn-sm btn-warning" title="Edit Ticket" data-request="ajaxModal" data-reload="true"><i class="fas fa-pen"></i> </button>';
                 }
                 /*}
                 if($user->can('delete_service_order'))
                 {*/
                 if($result->status == 1) {
-                    $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('opportunities.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Opportunity"><i class="fas fa-trash"></i></a>';
+                    $html .= '<a href="javascript:void(0)" class="btn btn-sm btn-danger delete-data ml-2" data-url="' . route('tickets.destroy', $result->id) . '" id="' . $result->id . '" title="Delete Ticket"><i class="fas fa-trash"></i></a>';
                 }
                 //}
 
@@ -41,9 +43,6 @@ class OpportunityServiceImpl implements OpportunityService
                 return $result->created_at->format('Y-m-d H:i:s');
             })
             ->editColumn('updated_at', function ($result) {
-                return $result->updated_at->format('Y-m-d H:i:s');
-            })
-            ->editColumn('expected_close_date', function ($result) {
                 return $result->updated_at->format('Y-m-d H:i:s');
             })
             ->editColumn('status', function ($result) {
@@ -63,35 +62,30 @@ class OpportunityServiceImpl implements OpportunityService
             })
             ->rawColumns(['status', 'action'])
             ->make(true);
-
     }
 
-    public function addOpportunity($data)
+    public function addTicket($data)
     {
-        return $this->opportunity->addOpportunity($data);
+        return $this->ticket->addTicket($data);
     }
 
-    public function getOpportunityById($id)
+    public function getTicketById($id)
     {
-        return $this->opportunity->getOpportunityById($id);
+        return $this->ticket->getTicketById($id);
     }
 
-    public function updateOpportunity($data, $id)
+    public function updateTicket($data, $id)
     {
-        return $this->opportunity->updateOpportunity($data,$id);
+        return $this->ticket->updateTicket($data, $id);
     }
 
-    public function deleteOpportunity($id)
+    public function deleteTicket($id)
     {
-        return $this->opportunity->deleteOpportunity($id);
+        return $this->ticket->deleteTicket($id);
     }
 
-    public function getTotalActiveOpportunities()
+    public function getTotalActiveTickets()
     {
-        return $this->opportunity->getTotalActiveOpportunities();
-    }
-    public function getAllOpportunitiesData()
-    {
-        return $this->opportunity->getAllOpportunitiesData();
+        return $this->ticket->getTotalActiveTickets();
     }
 }

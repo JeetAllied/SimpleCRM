@@ -9,6 +9,10 @@
         </div>
         <div class="modal-body">
             <div class="mb-3">
+                <label for="lead_title" class="form-label">Lead Title <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="lead_title" name="lead_title" placeholder="Enter Lead Title">
+            </div>
+            <div class="mb-3">
                 <label for="customer_id" class="form-label">Customer <span class="text-danger">*</span></label><br>
                 <select name="customer_id" class="form-control select2" id="customer_id">
                     <option value="-1">Select Customer</option>

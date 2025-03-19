@@ -48,12 +48,14 @@ class LeadController extends Controller
     {
         try {
             $rules = [
+                'lead_title'=> 'required',
                 'customer_id' => 'required',
                 'lead_source_id' => 'required',
                 'lead_status_id' => 'required',
                 'assigned_to'=>'required',
             ];
             $messages = [
+                'lead_title.required'=> 'Please enter lead title.',
                 'customer_id.required'=> 'Please select customer.',
                 'lead_source_id.required'=> 'Please select lead source.',
                 'lead_status_id.required' => 'Please select lead status.',
@@ -71,6 +73,7 @@ class LeadController extends Controller
                 ], 422);
             }
             $data = [
+                'lead_title'=> $request->lead_title,
                 'customer_id' => $request->customer_id,
                 'lead_source_id' => $request->lead_source_id,
                 'lead_status_id' => $request->lead_status_id,
@@ -137,6 +140,7 @@ class LeadController extends Controller
         try {
 
             $rules = [
+                'lead_title'=> 'required',
                 'customer_id' => 'required',
                 'lead_source_id' => 'required',
                 'lead_status_id' => 'required',
@@ -144,6 +148,7 @@ class LeadController extends Controller
             ];
 
             $messages = [
+                'lead_title.required'=> 'Please enter lead title.',
                 'customer_id.required'=> 'Please select customer.',
                 'lead_source_id.required'=> 'Please select lead source.',
                 'lead_status_id.required' => 'Please select lead status.',
@@ -161,6 +166,7 @@ class LeadController extends Controller
             }
 
             $data = [
+                'lead_title'=> $request->lead_title,
                 'customer_id' => $request->customer_id,
                 'lead_source_id' => $request->lead_source_id,
                 'lead_status_id' => $request->lead_status_id,

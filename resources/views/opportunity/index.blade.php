@@ -6,7 +6,7 @@
     <div class="content">
         <div class="container-fluid d-flex bg-info">
         <h1 class="text-dark mt-2 mx-4 mr-auto" data-reload="true">Opportunity</h1>
-        <button class="btn btn-primary mt-3 my-auto">
+        <button class="btn btn-primary mt-3 my-auto" data-remote="{{ route('opportunities.create') }}" data-request="ajaxModal" data-toggle="modal" data-reload="true">
             <span class="btn-label">
                 <i class="fa fa-plus"></i>
             </span>
@@ -30,7 +30,9 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Sr No</th>
+                                                    <th>Lead Title</th>
                                                     <th>Customer Name</th>
+                                                    <th>Opportunity Name</th>
                                                     <th>Expected Value</th>
                                                     <th>Opportunity Stage</th>
                                                     <th>Status</th>
@@ -79,7 +81,9 @@
                         title: 'Sr No', // Column title for serial number
                         orderable: false // Disable sorting for this column
                     },
+                    {data: 'lead.lead_title', name:'lead.lead_title'},
                     {data: 'lead.customer.name', name:'lead.customer.name'},
+                    {data: 'opportunity_name', name:'opportunity_name'},
                     {data: 'expected_value', name:'expected_value'},
                     {data: 'opportunity_stage.opportunity_stage_name', name:'opportunity_stage.opportunity_stage_name'},
                     {data: 'status', name:'status'},

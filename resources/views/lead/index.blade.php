@@ -30,6 +30,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Sr No</th>
+                                                    <th>Lead Title</th>
                                                     <th>Customer Name</th>
                                                     <th>Lead Source</th>
                                                     <th>Lead Status</th>
@@ -79,6 +80,7 @@
                         title: 'Sr No', // Column title for serial number
                         orderable: false // Disable sorting for this column
                     },
+                    {data: 'lead_title', name:'lead_title'},
                     {data: 'customer.name', name:'customer.name'},
                     {data: 'lead_source.lead_source_name', name:'lead_source.lead_source_name'},
                     {data: 'lead_status.lead_status_name', name:'lead_status.lead_status_name'},

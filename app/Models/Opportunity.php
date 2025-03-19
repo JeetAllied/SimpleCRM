@@ -59,4 +59,9 @@ class Opportunity extends Model
     {
         return $this->select('id')->where('status',1)->get()->count();
     }
+
+    public function getAllOpportunitiesData()
+    {
+        return $this->with(['lead','opportunityStage','lead.customer'])->where('opportunities.status',1)->orderBy('opportunities.id','desc')->get();
+    }
 }

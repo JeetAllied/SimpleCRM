@@ -8,4 +8,5 @@ interface OpportunityService
     public function updateOpportunity($data, $id);
     public function deleteOpportunity($id);
     public function getTotalActiveOpportunities();
+    public function getAllOpportunitiesData();
 }

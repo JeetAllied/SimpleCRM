@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-all-customers',[CustomerController::class,'getAllCustomers'])->name('get-all-customers');
     Route::get('/get-all-leads',[LeadController::class,'getAllLeads'])->name('get-all-leads');
     Route::get('/get-all-opportunities',[OpportunityController::class,'getAllOpportunities'])->name('get-all-opportunities');
+    Route::get('/get-all-sales-pipelines',[SalesPipelineController::class,'getAllSalesPipelines'])->name('get-all-sales-pipelines');
+    Route::get('/get-all-tickets',[TicketController::class,'getAllTickets'])->name('get-all-tickets');
 });
 
 Route::middleware('auth')->group(function () {
