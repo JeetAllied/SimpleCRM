@@ -319,7 +319,7 @@
 
                     // Show new errors and manage old values
                     $.each(errors, function (key, value) {
-                        let currentElement = $('input[name="'+ key +'"]');
+                        let currentElement = $('[name="'+ key +'"]');
                         if(currentElement.hasClass('select2') && currentElement.next('.select2-container').length) {
                             currentElement.insertAfter(currentElement.next('.select2-container'));
                         }

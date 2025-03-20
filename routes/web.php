@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-all-opportunities',[OpportunityController::class,'getAllOpportunities'])->name('get-all-opportunities');
     Route::get('/get-all-sales-pipelines',[SalesPipelineController::class,'getAllSalesPipelines'])->name('get-all-sales-pipelines');
     Route::get('/get-all-tickets',[TicketController::class,'getAllTickets'])->name('get-all-tickets');
+    Route::get('/get-all-activities',[ActivityController::class,'getAllActivities'])->name('get-all-activities');
 });
 
 Route::middleware('auth')->group(function () {

@@ -67,6 +67,10 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\TicketService\TicketService',
             'App\Services\TicketService\TicketServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\ActivityService\ActivityService',
+            'App\Services\ActivityService\ActivityServiceImpl'
+        );
     }
 
     /**
