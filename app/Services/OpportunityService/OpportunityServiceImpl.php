@@ -44,7 +44,7 @@ class OpportunityServiceImpl implements OpportunityService
                 return $result->updated_at->format('Y-m-d H:i:s');
             })
             ->editColumn('expected_close_date', function ($result) {
-                return $result->updated_at->format('Y-m-d H:i:s');
+                return $result->updated_at->format('d-M-Y ');
             })
             ->editColumn('status', function ($result) {
                 $statusText = "";

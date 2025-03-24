@@ -4,24 +4,22 @@
 
 @section('content')
     <div class="content">
-        <div class="container-fluid d-flex bg-info">
-            <h1 class="text-dark mt-2 mx-4 mr-auto">Marketing Campaign Type</h1>
-            <button class="btn btn-primary mt-3 my-auto" data-remote="{{ route('marketing-campaign-types.create') }}" data-request="ajaxModal" data-toggle="modal" data-reload="true">
-            <span class="btn-label">
-                <i class="fa fa-plus"></i>
-            </span>
-                Add Marketing Campaign Type
-            </button>
-        </div>
-
         <!--datatable -->
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <h3 class="card-header bg-dark card-dark">
-                            Marketing Campaign Type
-                        </h3>
+                        <div class="card-header bg-dark card-dark d-flex justify-content-between">
+                            <h3 class="align-self-center m-0">
+                                Marketing Campaign Type
+                            </h3>
+                            <button class="btn btn-primary float-right" data-remote="{{ route('marketing-campaign-types.create') }}" data-request="ajaxModal" data-toggle="modal" data-reload="true">
+                                <span class="btn-label">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                Add Marketing Campaign Type
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">

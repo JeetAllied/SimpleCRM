@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-all-sales-pipelines',[SalesPipelineController::class,'getAllSalesPipelines'])->name('get-all-sales-pipelines');
     Route::get('/get-all-tickets',[TicketController::class,'getAllTickets'])->name('get-all-tickets');
     Route::get('/get-all-activities',[ActivityController::class,'getAllActivities'])->name('get-all-activities');
+    Route::get('/get-all-marketing-campaigns',[MarketingCampaignController::class,'getAllMarketingCampaigns'])->name('get-all-marketing-campaigns');
 });
 
 Route::middleware('auth')->group(function () {

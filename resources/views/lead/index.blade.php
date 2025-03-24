@@ -4,23 +4,22 @@
 
 @section('content')
     <div class="content">
-        <div class="container-fluid d-flex bg-info">
-        <h1 class="text-dark mt-2 mx-4 mr-auto">Lead</h1>
-        <button class="btn btn-primary mt-3 my-auto" data-remote="{{ route('leads.create') }}" data-request="ajaxModal" data-toggle="modal" data-reload="true">
-            <span class="btn-label">
-                <i class="fa fa-plus"></i>
-            </span>
-            Add Lead
-        </button>
-        </div>
         <!--datatable -->
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <h3 class="card-header bg-dark card-dark">
-                            Customers
-                        </h3>
+                        <div class="card-header bg-dark card-dark d-flex justify-content-between">
+                            <h3 class="align-self-center m-0">
+                                Lead
+                            </h3>
+                            <button class="btn btn-primary float-right" data-remote="{{ route('leads.create') }}" data-request="ajaxModal" data-toggle="modal" data-reload="true">
+                                <span class="btn-label">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                Add Lead
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">

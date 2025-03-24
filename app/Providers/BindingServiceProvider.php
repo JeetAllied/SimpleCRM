@@ -71,6 +71,10 @@ class BindingServiceProvider extends ServiceProvider
             'App\Services\ActivityService\ActivityService',
             'App\Services\ActivityService\ActivityServiceImpl'
         );
+        $this->app->bind(
+            'App\Services\MarketingCampaignService\MarketingCampaignService',
+            'App\Services\MarketingCampaignService\MarketingCampaignServiceImpl'
+        );
     }
 
     /**
