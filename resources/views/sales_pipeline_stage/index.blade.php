@@ -72,6 +72,26 @@
         </div>
     </div>
 
-
-
 @endsection
+@push('js')
+    <script>
+        function validateSalesPipelineStage()
+        {
+            let salesPipelineStageName = document.getElementById("sales_pipeline_stage_name").value;
+
+            if(salesPipelineStageName == "" || salesPipelineStageName == null || salesPipelineStageName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter sales pipeline stage name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

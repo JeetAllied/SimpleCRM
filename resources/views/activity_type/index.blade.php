@@ -75,3 +75,25 @@
 
 
 @endsection
+@push('js')
+    <script>
+        function validateActivityType()
+        {
+            let activityTypeName = document.getElementById("activity_type_name").value;
+
+            if(activityTypeName == "" || activityTypeName == null || activityTypeName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter activity type name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

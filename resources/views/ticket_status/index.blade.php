@@ -71,7 +71,26 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection
+@push('js')
+    <script>
+        function validateTicketStatus()
+        {
+            let ticketStatus = document.getElementById("ticket_status_name").value;
+
+            if(ticketStatus == "" || ticketStatus == null || ticketStatus == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter ticket status name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

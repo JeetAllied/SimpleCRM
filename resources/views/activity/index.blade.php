@@ -92,6 +92,41 @@
                 "order": [[1, 'asc']]
             });
 
+
         });
+
+        function validateActivity()
+        {
+            let activityName = document.getElementById("activity_name").value;
+            let user = document.getElementById("user_id").value;
+            let activityType = document.getElementById("activity_type_id").value;
+            let activityDetail = document.getElementById("activity_detail").value;
+            if(activityName == "" || activityName == null || activityName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter activity name.");
+                return false;
+            }
+            if(user == "-1" || user == -1 || user == "" || user == null || user == undefined)
+            {
+                displayAlert("warning","Warning!","Please select user.");
+                return false;
+            }
+            if(activityType == "-1" || activityType == -1 || activityType == "" || activityType == null || activityType == undefined)
+            {
+                displayAlert("warning","Warning!","Please select activity type.");
+                return false;
+            }
+            if(activityDetail == "" || activityDetail == null || activityDetail == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter activity detail.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
     </script>
 @endpush

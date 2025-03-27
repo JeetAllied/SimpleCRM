@@ -1,4 +1,4 @@
-<form class="form-horizontal ng-pristine ng-valid ajaxFormSubmit" action="{{ route('activities.store') }}" method="post">
+<form class="form-horizontal ng-pristine ng-valid" action="{{ route('activities.store') }}" method="post" onsubmit="return validateActivity()">
     @csrf
     <div class="modal-content">
         <div class="modal-header">
@@ -52,6 +52,8 @@
     $(document).ready(function() {
         $("#user_id,#activity_type_id").select2({ width: '100%', border:'0'});
     });
+
+
 </script>
 
 

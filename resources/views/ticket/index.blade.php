@@ -95,5 +95,42 @@
             });
 
         });
+
+        function validateTicket()
+        {
+            let customer = document.getElementById("customer_id").value;
+            let subject = document.getElementById("subject").value;
+            let description = document.getElementById("description").value;
+            let ticketStatus = document.getElementById("ticket_status_id").value;
+
+
+            if(customer == "-1" || customer == -1 || customer == "" || customer == null || customer == undefined)
+            {
+                displayAlert("warning","Warning!","Please select customer.");
+                return false;
+            }
+            if(subject == "" || subject == null || subject == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter subject.");
+                return false;
+            }
+            if(description == "" || description == null || description == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter description.");
+                return false;
+            }
+            if(ticketStatus == "-1" || ticketStatus == -1 || ticketStatus == "" || ticketStatus == null || ticketStatus == undefined)
+            {
+                displayAlert("warning","Warning!","Please select ticket status.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

@@ -388,6 +388,17 @@
             }
         });
     });
+
+    //front end validation sweet alert 2
+    function displayAlert(icon="warning",title="Warning!",msg="Something went wrong!",timer=3000)
+    {
+        Swal.fire({
+            icon: icon,
+            title: title,
+            text: msg,
+            timer: timer,
+        });
+    }
 </script>
 @stack('js')
 </body>

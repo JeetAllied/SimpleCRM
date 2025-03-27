@@ -1,4 +1,4 @@
-<form class="form-horizontal ng-pristine ng-valid ajaxFormSubmit" action="{{ route('marketing-campaign-types.update',$marketingCampaignType->id) }}" method="post">
+<form class="form-horizontal ng-pristine ng-valid" action="{{ route('marketing-campaign-types.update',$marketingCampaignType->id) }}" method="post" onsubmit="return validateMarketingCampaignType()">
     @csrf
     @method('PUT')
     <div class="modal-content">

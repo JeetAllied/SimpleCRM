@@ -95,5 +95,40 @@
             });
 
         });
+
+        function validateSalesPipeline()
+        {
+            let title = document.getElementById("title").value;
+            let opportunity = document.getElementById("opportunity_id").value;
+            let salesPipelineStage = document.getElementById("sales_pipeline_stage_id").value;
+            let probability = document.getElementById("probability").value;
+            if(title == "" || title == null || title == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter sales pipeline title.");
+                return false;
+            }
+            if(opportunity == "-1" || opportunity == -1 || opportunity == "" || opportunity == null || opportunity == undefined)
+            {
+                displayAlert("warning","Warning!","Please select opportunity.");
+                return false;
+            }
+            if(salesPipelineStage == "-1" || salesPipelineStage == -1 || salesPipelineStage == "" || salesPipelineStage == null || salesPipelineStage == undefined)
+            {
+                displayAlert("warning","Warning!","Please select sales pipeline stage.");
+                return false;
+            }
+            if(probability == "" || probability == null || probability == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter probability value.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

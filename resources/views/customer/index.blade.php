@@ -104,5 +104,51 @@
             });
 
         });
+
+        function validateCustomer()
+        {
+            let customerName = document.getElementById("customer_name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let assignedTo = document.getElementById("assigned_to").value;
+            const phonePattern = /^[+]{1}(?:[0-9\-\\(\\)\\/.]\s?){6,15}[0-9]{1}$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(customerName == "" || customerName == null || customerName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter customer name.");
+                return false;
+            }
+            if(email == "" || email == null || email == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter email.");
+                return false;
+            }
+            if(email != "" && email != null && email != undefined && !emailPattern.test(email))
+            {
+                displayAlert("warning","Warning!","Please enter valid email.");
+                return false;
+            }
+            if(phone == "" || phone == null || phone == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter phone number.");
+                return false;
+            }
+            if (phone != "" && phone != null && phone != undefined && !phonePattern.test(phone)) {
+                displayAlert("warning","Warning!","Please enter valid contact number.");
+                return false;
+            }
+            if(assignedTo == "-1" || assignedTo == -1 || assignedTo == "" || assignedTo == null || assignedTo == undefined)
+            {
+                displayAlert("warning","Warning!","Please select user to assign.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

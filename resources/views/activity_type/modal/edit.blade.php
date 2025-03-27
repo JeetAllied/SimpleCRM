@@ -1,4 +1,4 @@
-<form class="form-horizontal ng-pristine ng-valid ajaxFormSubmit" action="{{ route('activity-types.update',$activityType->id) }}" method="post">
+<form class="form-horizontal ng-pristine ng-valid" action="{{ route('activity-types.update',$activityType->id) }}" method="post" onsubmit="return validateActivityType()">
     @csrf
     @method('PUT')
     <div class="modal-content">

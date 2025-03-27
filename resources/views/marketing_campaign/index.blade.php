@@ -94,5 +94,40 @@
             });
 
         });
+
+        function validateMarketingCampaign()
+        {
+            let marketingCampaignName = document.getElementById("marketing_campaign_name").value;
+            let marketingCampaignType = document.getElementById("marketing_campaign_type_id").value;
+            let startDate = document.getElementById("start_date").value;
+            let endDate = document.getElementById("end_date").value;
+            if(marketingCampaignName == "" || marketingCampaignName == null || marketingCampaignName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter marketing campaign name.");
+                return false;
+            }
+            if(marketingCampaignType == "-1" || marketingCampaignType == -1 || marketingCampaignType == "" || marketingCampaignType == null || marketingCampaignType == undefined)
+            {
+                displayAlert("warning","Warning!","Please select marketing campaign type.");
+                return false;
+            }
+            if(startDate == "" || startDate == null || startDate == undefined)
+            {
+                displayAlert("warning","Warning!","Please select start date.");
+                return false;
+            }
+            if(endDate == "" || endDate == null || endDate == undefined)
+            {
+                displayAlert("warning","Warning!","Please select end date.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

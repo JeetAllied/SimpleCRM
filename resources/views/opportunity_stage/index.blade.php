@@ -72,6 +72,26 @@
         </div>
     </div>
 
-
-
 @endsection
+@push('js')
+    <script>
+        function validateOpportunityStage()
+        {
+            let opportunityStageName = document.getElementById("opportunity_stage_name").value;
+
+            if(opportunityStageName == "" || opportunityStageName == null || opportunityStageName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter opportunity stage name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

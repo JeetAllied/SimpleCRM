@@ -98,5 +98,46 @@
             });
 
         });
+
+        function validateLead()
+        {
+            let leadTitle = document.getElementById("lead_title").value;
+            let customer = document.getElementById("customer_id").value;
+            let leadSource = document.getElementById("lead_source_id").value;
+            let leadStatus = document.getElementById("lead_status_id").value;
+            let assignedTo = document.getElementById("assigned_to").value;
+            if(leadTitle == "" || leadTitle == null || leadTitle == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter lead title.");
+                return false;
+            }
+            if(customer == "-1" || customer == -1 || customer == "" || customer == null || customer == undefined)
+            {
+                displayAlert("warning","Warning!","Please select customer.");
+                return false;
+            }
+            if(leadSource == "-1" || leadSource == -1 || leadSource == "" || leadSource == null || leadSource == undefined)
+            {
+                displayAlert("warning","Warning!","Please select lead source.");
+                return false;
+            }
+            if(leadStatus == "-1" || leadStatus == -1 || leadStatus == "" || leadStatus == null || leadStatus == undefined)
+            {
+                displayAlert("warning","Warning!","Please select lead status.");
+                return false;
+            }
+            if(assignedTo == "-1" || assignedTo == -1 || assignedTo == "" || assignedTo == null || assignedTo == undefined)
+            {
+                displayAlert("warning","Warning!","Please select user to assign.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

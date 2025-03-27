@@ -73,3 +73,25 @@
     </div>
 
 @endsection
+@push('js')
+    <script>
+        function validateLeadStatus()
+        {
+            let leadStatus = document.getElementById("lead_status_name").value;
+
+            if(leadStatus == "" || leadStatus == null || leadStatus == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter lead status.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

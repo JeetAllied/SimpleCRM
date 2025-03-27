@@ -75,3 +75,25 @@
 
 
 @endsection
+@push('js')
+    <script>
+        function validateMarketingCampaignType()
+        {
+            let marketingCampaignTypeName = document.getElementById("marketing_campaign_type_name").value;
+
+            if(marketingCampaignTypeName == "" || marketingCampaignTypeName == null || marketingCampaignTypeName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter marketing campaign type name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

@@ -92,4 +92,50 @@
 
 
 @endsection
+@push('js')
+    <script>
+        function validateUser()
+        {
+            let userName = document.getElementById("user_name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let role = document.getElementById("role").value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(userName == "" || userName == null || userName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter user name.");
+                return false;
+            }
+            if(email == "" || email == null || email == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter email.");
+                return false;
+            }
+            if(email != "" && email != null && email != undefined && !emailPattern.test(email))
+            {
+                displayAlert("warning","Warning!","Please enter valid email.");
+                return false;
+            }
+            if(password == "" || password == null || password == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter password.");
+                return false;
+            }
+            if(role == "-1" || role == -1 || role == "" || role == null || role == undefined)
+            {
+                displayAlert("warning","Warning!","Please select role.");
+                return false;
+            }
 
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
+    </script>
+
+
+@endpush

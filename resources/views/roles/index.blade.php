@@ -68,3 +68,25 @@
 
 
 @endsection
+@push('js')
+    <script>
+        function validateRole()
+        {
+            let roleName = document.getElementById("role_name").value;
+
+            if(roleName == "" || roleName == null || roleName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter role name.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

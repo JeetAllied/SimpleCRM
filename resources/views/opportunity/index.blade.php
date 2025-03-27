@@ -100,5 +100,46 @@
             });
 
         });
+
+        function validateOpportunity()
+        {
+            let opportunityName = document.getElementById("opportunity_name").value;
+            let lead = document.getElementById("lead_id").value;
+            let expectedValue = document.getElementById("expected_value").value;
+            let opportunityStage = document.getElementById("opportunity_stage_id").value;
+            let expectedCloseDate = document.getElementById("expected_close_date").value;
+            if(opportunityName == "" || opportunityName == null || opportunityName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter opportunity name.");
+                return false;
+            }
+            if(lead == "-1" || lead == -1 || lead == "" || lead == null || lead == undefined)
+            {
+                displayAlert("warning","Warning!","Please select lead.");
+                return false;
+            }
+            if(expectedValue == "" || expectedValue == null || expectedValue == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter expected value.");
+                return false;
+            }
+            if(opportunityStage == "-1" || opportunityStage == -1 || opportunityStage == "" || opportunityStage == null || opportunityStage == undefined)
+            {
+                displayAlert("warning","Warning!","Please select opportunity stage.");
+                return false;
+            }
+            if(expectedCloseDate == "" || expectedCloseDate == null || expectedCloseDate == undefined)
+            {
+                displayAlert("warning","Warning!","Please select expected close date.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+
     </script>
 @endpush

@@ -1,4 +1,4 @@
-<form class="form-horizontal ng-pristine ng-valid ajaxFormSubmit" action="{{ route('ticket-statuses.store') }}" method="post">
+<form class="form-horizontal ng-pristine ng-valid" action="{{ route('ticket-statuses.store') }}" method="post" onsubmit="return validateTicketStatus()">
     @csrf
     <div class="modal-content">
         <div class="modal-header">

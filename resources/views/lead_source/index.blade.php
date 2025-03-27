@@ -76,3 +76,25 @@
 
 
 @endsection
+@push('js')
+    <script>
+        function validateLeadSource()
+        {
+            let leadSourceName = document.getElementById("lead_source_name").value;
+
+            if(leadSourceName == "" || leadSourceName == null || leadSourceName == undefined)
+            {
+                displayAlert("warning","Warning!","Please enter lead source.");
+                return false;
+            }
+            else
+            {
+                $("form").addClass("ajaxFormSubmit");
+                return true;
+            }
+        }
+
+    </script>
+
+
+@endpush

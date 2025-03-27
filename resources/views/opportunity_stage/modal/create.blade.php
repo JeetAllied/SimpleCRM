@@ -1,4 +1,4 @@
-<form class="form-horizontal ng-pristine ng-valid ajaxFormSubmit" action="{{ route('opportunity-stages.store') }}" method="post">
+<form class="form-horizontal ng-pristine ng-valid" action="{{ route('opportunity-stages.store') }}" method="post" onsubmit="return validateOpportunityStage()">
     @csrf
     <div class="modal-content">
         <div class="modal-header">
