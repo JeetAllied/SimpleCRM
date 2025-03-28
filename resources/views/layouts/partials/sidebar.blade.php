@@ -37,7 +37,14 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item active">
+                <li class="nav-item">
+                    <a href="{{route('dashboard')}}">
+                        <i class="fas fa-home"></i>
+                        <p>Dashboard</p>
+
+                    </a>
+                </li>
+                {{--<li class="nav-item active">
                     <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
@@ -57,7 +64,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li>--}}
                 <li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
@@ -171,6 +178,18 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fas fa-ellipsis-h"></i>
+							</span>
+                    <h4 class="text-section">Setting</h4>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('profile.edit')}}">
+                        <i class="fas fa-user"></i>
+                        <p>Update Profile</p>
+                    </a>
                 </li>
             </ul>
         </div>

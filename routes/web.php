@@ -18,6 +18,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketStatusController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('test2');
@@ -27,9 +28,9 @@ Route::get('/test', function () {
     return view('test2');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+/*Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware(['auth', 'verified'])->name('dashboard');*/
 
 Route::middleware('auth')->group(function () {
     Route::resources([
@@ -57,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-all-tickets',[TicketController::class,'getAllTickets'])->name('get-all-tickets');
     Route::get('/get-all-activities',[ActivityController::class,'getAllActivities'])->name('get-all-activities');
     Route::get('/get-all-marketing-campaigns',[MarketingCampaignController::class,'getAllMarketingCampaigns'])->name('get-all-marketing-campaigns');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::middleware('auth')->group(function () {
